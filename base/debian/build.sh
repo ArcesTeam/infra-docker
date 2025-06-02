@@ -22,9 +22,7 @@ readonly image_version="$(read_version)"
 readonly image_tag="$(get_tag "$image_role" "$image_name" "$image_version")"
 
 if image_exists_remotely "$image_tag"; then
-    echo "Image $image_tag already exists. Skipping build."
     exit 0
 fi
 
-log_info "Building Docker image: $image_name:$image_version"
 build_and_push_image "$image_role" "$image_name" "$image_version"
