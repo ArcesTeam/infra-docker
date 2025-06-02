@@ -55,11 +55,9 @@ build_and_push_image() {
     local image_name="$2"
     local image_version="$3"
 
-    local sort_name
-    local tag
-
-    sort_name="$image_name:$image_version"
-    tag="$(get_tag "$image_role" "$image_name" "$image_version")"
+    local sort_name="$image_name:$image_version"
+    # shellcheck disable=SC2155
+    local tag="$(get_tag "$image_role" "$image_name" "$image_version")"
 
     log_info "Building Docker image: $sort_name"
 
