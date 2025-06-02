@@ -22,5 +22,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Make all scripts executable
+        run: find ./scripts -type f -name "*.sh" -exec chmod +x {} \;
+
       - name: Build and Push base images
         run: bash ./scripts/build-all.sh ./base
