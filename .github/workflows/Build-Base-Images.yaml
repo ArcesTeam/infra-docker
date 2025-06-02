@@ -1,0 +1,35 @@
+name: Build Base Images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'base/**'
+      - '.github/workflows/Build-Base-Images.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push base images
+        run: |
+          echo "::group::Building Alpine Base Image"
+          chmod +x ./base/alpine/build.sh
+          bash ./base/alpine/build.sh
+          echo "::endgroup::"
+
+          echo "::group::Building Ubuntu Base Image"
+          chmod +x ./base/ubuntu/build.sh
+          bash ./base/ubuntu/build.sh
+          echo "::endgroup::"
