@@ -2,7 +2,7 @@
 
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="right">
-  <a href="https://github.com/ArcesTeam/{{project-name}}/blob/main/.github/lang/zh-CN/SECURITY.md" title="简体中文">CN 简体中文</a> &nbsp;|&nbsp;
+  <a href="https://github.com/ArcesTeam/infra-docker/blob/main/.github/lang/zh-CN/SECURITY.md" title="简体中文">CN 简体中文</a> &nbsp;|&nbsp;
   <strong>EN English</strong>
 </p>
 
@@ -20,22 +20,16 @@ personal forks, or unofficial branches.
 | Branch/Version | Accepts Security Reports |
 |----------------|--------------------------|
 | main / master  | ✅ Yes                    |
-| feature/*      | ⚠️ Case-by-case          |
 | others/*       | ❌ No                     |
-
-> 🚨 Note: This template provides a general security policy. Specific projects
-> may adjust the response scope as needed.
 
 ## 🐞 Reporting Security Issues
 
 If you discover a potential vulnerability or risk, please report it privately
 via one of the following methods:
 
-- 📧 **Email (Recommended):** Send an email to [
-  `security@example.com`](mailto:security@example.com)
 - 🔒 **GitHub Security Advisories** (if enabled): Submit a confidential report
   via
-  the [Security Advisories](https://github.com/ArcesTeam/{{project-name}}/security/advisories)
+  the [Security Advisories](https://github.com/ArcesTeam/infra-docker/security/advisories)
   page
 
 **Do not disclose sensitive vulnerabilities in public issues or discussion areas
@@ -56,7 +50,8 @@ information in your report:
 
 ## ⏱️ Response Process
 
-We will respond to security reports within **3-5 business days** and follow this
+We will respond to security reports within **1-2 business weeks** and follow
+this
 process:
 
 1. Assign an identifier (CVE or internal number);
