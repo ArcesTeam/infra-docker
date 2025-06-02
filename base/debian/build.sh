@@ -11,7 +11,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-source "../../scripts/common.sh"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../../scripts/common.sh"
 
 readonly image_role="base"
 readonly image_name="debian"
