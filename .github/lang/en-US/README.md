@@ -1,4 +1,4 @@
-# Project Name
+# 📦 Project Name
 
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="right">
@@ -6,70 +6,68 @@
   <strong>EN English</strong>
 </p>
 
-> This README is a general template suitable for various projects. Please modify
-> and supplement it according to your actual needs.
+> **ArcesTeam Internal Universal Docker Image Management Repository**
 
-## Project Overview
+---
 
-Briefly introduce the core features, goals, and application scenarios of the
-project.
-For example: This project aims to provide an efficient and scalable XXX
-solution, suitable for XXX scenarios.
+## 📘 Project Overview
 
-## Features
+This is a repository used for managing common Docker images within ArcesTeam.
+It provides a standardized template aimed at helping teams quickly create and
+maintain Docker images.
 
-- Feature one description
-- Feature two description
-- ...
-- Support for multi-platform/multi-language/plugin extension, etc.
+---
 
-## Quick Start
+## 🚀 Features
 
-### Requirements
+- **Standardized Template**: Offers a unified project structure and
+  configuration for easier team collaboration and maintenance.
 
-- Dependency 1 (e.g., Node.js >= 18, Python >= 3.10, etc.)
-- Dependency 2
-- ...
+---
 
-### Installation & Run
+## 🧩 项目结构
 
-```bash
-# Clone the repository
-git clone <your-repo-url>
-cd <your-project-dir>
+Not available yet.
 
-# Install dependencies
-<your-install-command>
+---
 
-# Start the project
-<your-start-command>
-```
+## ⚡️ Quick Start
 
-### Example Usage
+### 🧱 Get Current Images from Packages
 
-```bash
-<your-example-command>
-```
+Not available yet.
 
-## Documentation & Support
+## 🧭 Usage Suggestions
 
-- [User Documentation](./docs/)
-- [FAQ](./docs/FAQ.md)
-- [Contributing Guide](./CONTRIBUTING.md)
-- [Code of Conduct](./.github/lang/en-US/CODE_OF_CONDUCT.md)
-- [Security Policy](./.github/lang/en-US/SECURITY.md)
+You can use this repository for:
 
-If you need help or have any questions, please contact us via Issue or
-Discussions.
+- Creating new Docker image projects;
+- Maintaining existing Docker images;
+- Quickly setting up the basic structure of Docker images.
 
-## Contribution
+---
 
-Community contributions are welcome!
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed processes and
-guidelines.
+## 📄 License
 
-## License
+This template project is licensed under
+the [MIT License](https://github.com/ArcesTeam/infra-docker/blob/main/LICENSE).
 
-This project uses MIT / Apache-2.0 / GPL-3.0 or other open source licenses (
-please choose and supplement as appropriate).
+---
+
+## 📣 Contact Us
+
+This project is maintained by [ArcesTeam](https://github.com/ArcesTeam), and we
+welcome suggestions for improvements or PR submissions.
+
+---
+
+## ✅ You may also:
+
+- 🔍 Check out [`infra-maven`](https://github.com/ArcesTeam/infra-maven) for
+  Maven project Packages.
+- 💬 Join our [Discussions](https://github.com/orgs/ArcesTeam/discussions) for
+  discussions and support.
+
+---
+
 
