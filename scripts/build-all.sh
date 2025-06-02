@@ -31,7 +31,7 @@ find "$TARGET_DIR" -type f -name "build.sh" | while read -r build_script; do
     echo "::endgroup::"
 done
 
-if [[ $has_error -ne 0 ]]; then
+if [[ "$has_error" -eq 1 ]]; then
     log_error "One or more build scripts failed."
     exit 1
 else
