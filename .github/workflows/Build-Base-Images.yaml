@@ -23,13 +23,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push base images
-        run: |
-          echo "::group::Building Alpine Base Image"
-          chmod +x ./base/alpine/build.sh
-          bash ./base/alpine/build.sh
-          echo "::endgroup::"
-
-          echo "::group::Building Ubuntu Base Image"
-          chmod +x ./base/ubuntu/build.sh
-          bash ./base/ubuntu/build.sh
-          echo "::endgroup::"
+        run: bash ./scripts/build-all.sh ./base

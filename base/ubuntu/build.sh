@@ -11,44 +11,19 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-read_version() {
-    if [[ ! -f "VERSION" ]]; then
-        echo "VERSION file not found. Please create a VERSION file with the image version."
-        exit 1
-    fi
+source "../../scripts/common.sh"
 
-    local version
-    version=$(< VERSION)
-    version="${version//[$'\t\r\n ']}"  # Trim whitespace
+readonly image_role="base"
+readonly image_name="ubuntu"
+# shellcheck disable=SC2155
+readonly image_version="$(read_version)"
+# shellcheck disable=SC2155
+readonly tag="$(get_tag "$image_role" "$image_name" "$image_version")"
 
-    if [ -z "$version" ]; then
-        echo "VERSION file is empty. Please provide a valid version."
-        exit 1
-    fi
+if image_exists_remotely "$tag"; then
+    echo "Image $tag already exists. Skipping build."
+    exit 0
+fi
 
-    echo "$version"
-}
-
-build() {
-    local image_name="ubuntu"
-    local version
-    local tag
-
-    version=$(read_version)
-    tag="ghcr.io/arcesteam/infra-docker/base/$image_name:$version"
-
-    echo "Building Docker image: $image_name:$version"
-    docker build -t "$tag" \
-        --build-arg "IMAGE_NAME=$image_name" \
-        --build-arg "VERSION=$version" \
-        --file "Dockerfile" \
-        --progress=plain \
-        .
-    echo "Docker image built successfully: $image_name:$version"
-
-    echo "Pushing Docker image: $image_name:$version"
-    docker push "$tag"
-    echo "Docker image pushed successfully: $image_name:$version"
-}
-
-build
+log_info "Building Docker image: $image_name:$image_version"
+build_and_push_image "$image_role" "$image_name" "$image_version"
