@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'base/**'
+      - 'scripts/**'
       - '.github/workflows/Build-Base-Images.yaml'
 
 jobs:

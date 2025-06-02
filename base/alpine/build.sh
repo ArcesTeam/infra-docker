@@ -19,10 +19,10 @@ readonly image_name="alpine"
 # shellcheck disable=SC2155
 readonly image_version="$(read_version)"
 # shellcheck disable=SC2155
-readonly tag="$(get_tag "$image_role" "$image_name" "$image_version")"
+readonly image_tag="$(get_tag "$image_role" "$image_name" "$image_version")"
 
-if image_exists_remotely "$tag"; then
-    echo "Image $tag already exists. Skipping build."
+if image_exists_remotely "$image_tag"; then
+    echo "Image $image_tag already exists. Skipping build."
     exit 0
 fi
 

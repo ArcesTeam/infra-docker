@@ -43,27 +43,27 @@ image_exists_remotely() {
 }
 
 get_tag() {
-    local image_role="$1"
-    local image_name="$2"
-    local image_version="$3"
+    local role="$1"
+    local name="$2"
+    local version="$3"
 
-    echo "ghcr.io/arcesteam/infra-docker/$image_role/$image_name:$image_version"
+    echo "ghcr.io/arcesteam/infra-docker/$role/$name:$version"
 }
 
 build_and_push_image() {
-    local image_role="$1"
-    local image_name="$2"
-    local image_version="$3"
+    local role="$1"
+    local name="$2"
+    local version="$3"
 
-    local sort_name="$image_name:$image_version"
+    local sort_name="$name:$version"
     # shellcheck disable=SC2155
-    local tag="$(get_tag "$image_role" "$image_name" "$image_version")"
+    local tag="$(get_tag "$role" "$name" "$version")"
 
     log_info "Building Docker image: $sort_name"
 
     docker build -t "$tag" \
-        --build-arg "IMAGE_NAME=$image_name" \
-        --build-arg "VERSION=$image_version" \
+        --build-arg "IMAGE_NAME=$name" \
+        --build-arg "VERSION=$version" \
         --file "Dockerfile" \
         --progress=plain \
         .
