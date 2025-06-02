@@ -5,9 +5,7 @@ LABEL org.opencontainers.image.authors="ArcesTeam"
 LABEL org.opencontainers.image.license="MIT"
 LABEL arcesteam.role="runtime-jdk-image"
 
-ENV JDK_VERSION=21.0.3
-ENV JDK_BUILD=9
-ENV JDK_URL=https://github.com/adoptium/temurin21-binaries/releases/download/jdk-${JDK_VERSION}+${JDK_BUILD}/OpenJDK21U-jdk_x64_alpine-linux_hotspot_${JDK_VERSION//./_}_${JDK_BUILD}.tar.gz
+ENV JDK_URL=https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.3+9/OpenJDK21U-jdk_x64_alpine-linux_hotspot_21.0.3_9.tar.gz
 
 RUN curl -fsSL "${JDK_URL}" -o jdk.tar.gz \
     && mkdir -p /opt/jdk \
