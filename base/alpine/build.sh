@@ -11,18 +11,31 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-build() {
-    local image_name="alpine"
-    local version
-    local tag
-
+read_version() {
     if [[ ! -f "VERSION" ]]; then
         echo "VERSION file not found. Please create a VERSION file with the image version."
         exit 1
     fi
 
-    version=$(cat "VERSION")
-    tag="ghcr.io/arcesteam/infra/base/$image_name:$version"
+    local version
+    version=$(< VERSION)
+    version="${version//[$'\t\r\n ']}"  # Trim whitespace
+
+    if [ -z "$version" ]; then
+        echo "VERSION file is empty. Please provide a valid version."
+        exit 1
+    fi
+
+    echo "$version"
+}
+
+build() {
+    local image_name="alpine"
+    local version
+    local tag
+
+    version=$(read_version)
+    tag="ghcr.io/arcesteam/infra-docker/base/$image_name:$version"
 
     echo "Building Docker image: $image_name:$version"
     docker build -t "$tag" \
