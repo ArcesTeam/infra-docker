@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.license="MIT"
 LABEL arcesteam.role="ci-release-image"
 
 RUN apk add --no-cache \
-    gpg gh maven \
+    gpg maven \
     && rm -rf /var/cache/apk/*
 
 ENV CI_RELEASE=true
