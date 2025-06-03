@@ -71,4 +71,4 @@ run
 runs
 run-data
 repo
-
+!ci/build/
