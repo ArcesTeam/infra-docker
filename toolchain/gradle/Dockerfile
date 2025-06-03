@@ -13,7 +13,7 @@ RUN apk add --no-cache unzip \
     && mkdir -p "${GRADLE_HOME}" \
     && unzip -q gradle.zip -d "${GRADLE_HOME}" \
     && rm gradle.zip \
-    && ln -s "${GRADLE_HOME}/gradle-8.13/bin/gradle" /usr/bin/gradle \
+    && ln -s "${GRADLE_HOME}/gradle-8.13/bin/gradle" /usr/bin/gradle
 
 ENV PATH="${GRADLE_HOME}/gradle-8.13/bin:${PATH}"
 
