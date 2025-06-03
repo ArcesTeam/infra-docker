@@ -1,0 +1,32 @@
+name: Build CI Images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ci/**'
+      - 'scripts/**'
+      - '.github/workflows/Build-CI-Images.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Make all scripts executable
+        run: |
+          find . -type f -name "build.sh" -exec chmod +x {} \;
+          find ./scripts -type f -name "*.sh" -exec chmod +x {} \;
+
+      - name: Build and Push images
+        run: bash ./scripts/build-all.sh ./ci
